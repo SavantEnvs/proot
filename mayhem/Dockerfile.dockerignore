@@ -1,0 +1,8 @@
+# Build context for mayhem/Dockerfile: the full repo incl. .git, minus local build outputs.
+out/
+**/*.o
+**/*.d
+src/proot
+src/build.h
+src/loader/loader
+src/loader/loader-m32

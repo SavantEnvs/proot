@@ -1,0 +1,10 @@
+project: savantenvs/proot
+target: proot-path
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/proot-path/testsuite
+cmds:
+  # proot-replay replays the input's syscalls through proot's translator (mayhem/harnesses/replay_main.c)
+  - cmd: /mayhem/out/proot-replay path @@ -b /dev/null -b @SCRATCH@/bound:/mnt
+    afl: true
+    timeout: 10

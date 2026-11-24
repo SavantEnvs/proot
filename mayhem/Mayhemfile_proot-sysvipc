@@ -1,0 +1,10 @@
+project: savantenvs/proot
+target: proot-sysvipc
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/proot-sysvipc/testsuite
+cmds:
+  # proot-replay replays the input's syscalls through proot's translator (mayhem/harnesses/replay_main.c)
+  - cmd: /mayhem/out/proot-replay ipc @@ --sysvipc
+    afl: true
+    timeout: 10
